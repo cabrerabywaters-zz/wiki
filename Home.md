@@ -1,10 +1,11 @@
-# Welcome
+# Manual de Uso Rundeck - Sonda.
 
-Welcome to your wiki! This is the default page we've installed for your convenience. Go ahead and edit it.
+La siguiente guía presenta la información básica para poder administrar la plataforma Rundeck en Sonda.
 
-## Wiki features
+## ÌNDICE:
 
-This wiki uses the [Markdown](http://daringfireball.net/projects/markdown/) syntax.
+
+[1.- INSTALACIÓN Y CONFIGURACIÓN](https://bitbucket.org/uaicloudlab/rundeck/wiki/1.-%20Instalaci%C3%B3n%20y%20Configuraci%C3%B3n)
 
 The wiki itself is actually a git repository, which means you can clone it, edit it locally/offline, add images or any other file type, and push it back to us. It will be live immediately.
 
