@@ -24,3 +24,30 @@ Y finalmente, instalamos NPM
 ```
 sudo npm install npm -g
 ``` 
+
+## Instalando NPM Mirror ##
+
+Ahora, deberemos instalar el paquete local-npm para levantar el servidor que hará de mirror
+
+```
+npm install -g local-npm
+```
+
+### Crear carpeta para guardar los packetes ###
+Una vez instalado deberemos crear una carpeta en la cual se guardaran los paquetes a instalar. La ubicación de la carpet dependerá de dónde en la máquina queremos guardar los archivos.
+
+```
+mkdir /var/node_repositories
+```
+
+Luego debemos ingresar en ella.
+
+```
+cd /var/node_repositories
+```
+
+Y correr el comando
+
+```
+local-npm
+```
