@@ -53,3 +53,11 @@ local-npm --url-base http://192.168.x.x:5080
 ```
 
 Donde 192.168.x.x es la dirección IP privada que los demás servidores deberán acceder para instalar los paquetes de NPM
+
+# Configurar la máquina Privada #
+
+Finalmente, en la máquina privada que debe acceder a nuestro mirror, debemos correr el siguiente comando
+
+```
+npm set registry http://192.168.x.x:5080
+``` 
