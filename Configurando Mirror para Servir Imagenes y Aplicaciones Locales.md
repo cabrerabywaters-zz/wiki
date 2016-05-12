@@ -49,5 +49,7 @@ cd /var/node_repositories
 Y correr el comando
 
 ```
-local-npm
+local-npm --url-base http://192.168.x.x:5080
 ```
+
+Donde 192.168.x.x es la dirección IP privada que los demás servidores deberán acceder para instalar los paquetes de NPM
