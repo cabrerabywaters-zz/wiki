@@ -171,3 +171,40 @@ Finalmente, debemos configurar apache para servir los paquetes desde el nuevo re
 cd /var/www/
 sudo ln -s /media/STORAGE/mirror/us.archive.ubuntu.com/ubuntu/ ubuntu
 ```
+
+# Ubuntu mirror si no hay espacio en el disco #
+
+Si no tenemos suficiente espacio disponible en nuestro disco duro, es posible configurar APT cacher, el cual permite descargar a traves de proxy todos los repositorios que sean necesarios y de esta manera cachearlos.
+
+
+```
+#!bash
+
+sudo aptitude install apt-cacher
+```
+
+Una vez instalado deberemos configurar cada una de las maquinas que utilizaran este proxy. Para eso deberemos crear un nuevo archivo en la siguiente ubucacion
+
+
+```
+#!bash
+
+/etc/apt/apt.conf.d/
+```
+
+El nombre del archivo debera ser 
+
+```
+#!bash
+
+90-apt-proxy.conf 
+```
+
+Y este archivo debera contener la informacion de configuracion del proxy necesario.
+
+
+```
+#!bash
+
+Acquire::http::Proxy "http://10.161.234.60:3142";
+```
