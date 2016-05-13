@@ -61,3 +61,66 @@ Finalmente, en la máquina privada que debe acceder a nuestro mirror, debemos co
 ```
 npm set registry http://192.168.x.x:5080
 ``` 
+
+# Instalando Satis para Composer #
+
+Satis es una herramienta que nos permite realizar un mirror local de nuestros packages que generalmente se instalan a traves de composer. Para poder configurarlo correctamente, nuestra maquina necesitara tener instalado composer.
+Para eso crearemos una carpeta en la cual queramos instalar el proyecto y correremos el siguiente comando dentro de ella
+
+```
+#!bash
+curl -sS https://getcomposer.org/installer | php
+
+```
+
+Posteriormente, debemos instalar Satis.
+
+
+```
+#!bash
+
+php composer.phar create-project composer/satis --stability=dev --keep-vcs 
+```
+
+Una vez instalado Satis podemos crear el archivo de configuracion que nos permitira descargar los packages que queraramos compartir a traves de mirror.
+
+
+```
+#!bash
+
+{
+    "name": "Sonda Mirror",
+    "homepage": "http://localhost:4680",
+ 
+    "repositories": [
+        { "type": "vcs", "url": "https://github.com/SynetoNet/monolog" },
+        { "type": "composer", "url": "https://packagist.org" }
+    ],
+ 
+    "require": {
+        "monolog/monolog": "syneto-dev",
+        "mockery/mockery": "*",
+        "phpunit/phpunit": "*"
+    },
+    "require-dependencies": true
+}
+```
+
+Una vez creada esta configuracion debemos decirle a Satis que genere los mirrors correspondientes mediante el comando
+
+
+```
+#!bash
+
+php ./satis/bin/satis build ./mirrored_packages.conf ./packages-mirror
+
+```
+
+Finalmente, podemos correr un servidor en PHP para poder servir los paquetes recientemente instalados.
+
+
+```
+#!bash
+
+php -S localhost:4680 -t ./packages-mirror/
+```
