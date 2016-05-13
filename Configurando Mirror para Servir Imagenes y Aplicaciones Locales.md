@@ -124,3 +124,50 @@ Finalmente, podemos correr un servidor en PHP para poder servir los paquetes rec
 
 php -S localhost:4680 -t ./packages-mirror/
 ```
+
+# Configurando un Mirror para Ubuntu #
+
+En primer lugar, debemos instalar aptmirror para poder crear el mirror de ubuntu
+
+
+```
+#!bash
+
+sudo aptitude install apt-mirror
+```
+
+Para poder servir los repositorios de manera local deberemos configurar apache en la maquina
+
+
+```
+#!bash
+
+sudo aptitude install apache2
+```
+
+El archivo de configuracion de aptmirror se encuentra en 
+
+```
+#!bash
+
+/etc/apt/mirror.list
+```
+
+Luego, para comenzar a descargar los paquetes debemos utilizar el comando
+
+
+```
+#!bash
+apt-mirror
+
+```
+
+Finalmente, debemos configurar apache para servir los paquetes desde el nuevo repositorio
+
+
+```
+#!bash
+
+cd /var/www/
+sudo ln -s /media/STORAGE/mirror/us.archive.ubuntu.com/ubuntu/ ubuntu
+```
