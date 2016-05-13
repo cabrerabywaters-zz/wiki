@@ -2,6 +2,11 @@
 
 Los mirrors se utilizan para poder acceder a la información de múltiples repositorios a lo largo de internet por medio de una sola máquina local. Esto permite que todos los repositorios se descarguen directamente desde Internet con una máquina y todas las otras máquinas podrán acceder a esta a través de la red local para descargar nuevos paquetes.
 
+# Requerimientos #
+* Las máquinas deben tener el mismo sistema operativo (UBUNTU)
+* Deben poder verse o estar en la misma red
+* Se deben habilitar la conexión por los siguientes puerto: ### 3142 (Repo ubuntu), 5080 (Repo Node y NPM), 4680 (Satis Composer) ###
+
 # Instalación #
 
 ## Node JS y NPM ##
